@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f2eb">
+    <title>Hangman — A little word game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Hangman home">
+          <span class="brand-mark" aria-hidden="true">H</span>
+          <span>little word game</span>
+        </a>
+        <span class="word-source"><span class="source-dot" aria-hidden="true"></span> 2,838 words</span>
+      </header>
+
+      <section class="game-card" aria-labelledby="game-title">
+        <div class="game-heading">
+          <p class="eyebrow">A classic guessing game</p>
+          <h1 id="game-title">Hangman<span>.</span></h1>
+          <p class="subtitle">Find the hidden word, one letter at a time.</p>
+        </div>
+
+        <div class="game-content">
+          <div class="drawing-panel">
+            <div class="drawing-topline">
+              <span class="panel-label">YOUR LIVES</span>
+              <span class="mistakes" id="mistakes-count">0 <span>/ 6</span></span>
+            </div>
+            <svg class="hangman-drawing" viewBox="0 0 240 230" role="img" aria-labelledby="drawing-title">
+              <title id="drawing-title">Hangman drawing, no mistakes yet</title>
+              <path class="gallows" d="M37 207h166M70 207V25h92v25" />
+              <circle class="person" data-part="head" cx="162" cy="72" r="20" />
+              <path class="person" data-part="body" d="M162 92v49" />
+              <path class="person" data-part="left-arm" d="m162 105-29 22" />
+              <path class="person" data-part="right-arm" d="m162 105 29 22" />
+              <path class="person" data-part="left-leg" d="m162 141-27 36" />
+              <path class="person" data-part="right-leg" d="m162 141 27 36" />
+              <path class="gallows" d="M145 50h34" />
+            </svg>
+            <p class="drawing-caption" id="drawing-caption">A fresh start. You’ve got this.</p>
+          </div>
+
+          <div class="play-panel">
+            <div class="round-info">
+              <span class="panel-label">MYSTERY WORD</span>
+              <span class="round-badge" id="round-badge">ROUND 1</span>
+            </div>
+            <div class="word" id="word" aria-label="Hidden word"></div>
+            <p class="hint" id="game-message" aria-live="polite">Pick a letter to make your first guess.</p>
+
+            <div class="keyboard" id="keyboard" aria-label="Letter keyboard"></div>
+
+            <div class="bottom-row">
+              <p class="keyboard-tip"><kbd>A–Z</kbd> or tap a letter</p>
+              <button class="new-game" id="new-game" type="button">
+                <span aria-hidden="true">↻</span> New word
+              </button>
+            </div>
+          </div>
+        </div>
+        <footer class="game-footer"><span>Six chances. One hidden word.</span><span>Made for curious minds <span class="heart">♥</span></span></footer>
+      </section>
+      <p class="page-note">Take a breath, trust your instincts, and have fun.</p>
+    </main>
+  </body>
+</html>
